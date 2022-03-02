@@ -1,18 +1,33 @@
+body {
+    font-family: 'Hubballi', cursive;
+}
+
 .draw {
     display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-evenly;
 }
 
 .user-input {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items:flex-start;
     gap: 15px;
+    flex-wrap: wrap;
+}
+
+.banner-and-drawing-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .drawing-board {
     margin: auto;
-    width: 800px;
-    height: 90vh;
+    width: 500px;
+    height: 500px;
     display: flex;
     border: 1px solid black;
 }

@@ -1,7 +1,6 @@
 // Create a square div board
 
 /* 
- * By default create a 16 x 16 div
  * 
  * How? Iterate through numSquare and create a div and append to each other. 
  *  
@@ -30,10 +29,10 @@ function drawSquare (numSquare) { //numSquare is the size of the square matrix.(
 
 let num = document.querySelector('.input');
 
-drawSquare(num.value);
+drawSquare(num.value); //Defaul 16
 
 let updateBtn = document.querySelector('button');
-let draw = document.querySelector('.draw');
+let draw = document.querySelector('.banner-and-drawing-board');
 let squares = document.querySelectorAll(`.square-square`); // fetch individual squares that are drawn
 
 updateBtn.addEventListener('click', () => {
@@ -42,9 +41,7 @@ updateBtn.addEventListener('click', () => {
     drawingBoard.classList.add('drawing-board');
     draw.appendChild(drawingBoard);
     drawSquare(num.value);
-    // squares = '';
     squares = document.querySelectorAll('.square-square');
-    console.log(squares);
     squares.forEach(square => {
         square.addEventListener('mouseover', () => {
            square.style.cssText = `background-color: black`;
