@@ -1,3 +1,17 @@
+body {
+    display: flex;
+}
+
+.user-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    gap: 15px;
+}
+
+
+
 .drawing-board {
     margin: auto;
     width: 800px;
