@@ -29,3 +29,15 @@ function drawSquare (numSquare = 32) { //numSquare is the size of the square mat
 }
 
 drawSquare();
+
+
+let num;
+
+drawSquare(num);
+
+let squares = document.querySelectorAll(`.square-square`);
+squares.forEach(square => {
+    square.addEventListener(`mouseover`, () => {
+       square.style.cssStyle = `background-color: black`;
+    })
+})
