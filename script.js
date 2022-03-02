@@ -10,7 +10,7 @@ let drawingBoard = document.querySelector('.drawing-board');
  * 
  */
 
-function drawSquare (numSquare = 32) { //numSquare is the size of the square matrix.(numSquare=16 means it will create a 16x16 square)
+function drawSquare (numSquare = 16) { //numSquare is the size of the square matrix.(numSquare=16 means it will create a 16x16 square)
     
     for (let i = 1; i <= numSquare; i++) {
         let square = document.createElement(`div`);
@@ -28,12 +28,10 @@ function drawSquare (numSquare = 32) { //numSquare is the size of the square mat
 
 }
 
-drawSquare();
-
-
-let num;
-
-drawSquare(num);
+let num = document.getElementsByTagName(`input`);
+num.value = '16';
+console.log(num.value)
+drawSquare(num.value);
 
 let squares = document.querySelectorAll(`.square-square`);
 squares.forEach(square => {
