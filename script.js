@@ -1,5 +1,3 @@
-let drawingBoard = document.querySelector('.drawing-board');
-
 // Create a square div board
 
 /* 
@@ -10,8 +8,10 @@ let drawingBoard = document.querySelector('.drawing-board');
  * 
  */
 
+let drawingBoard = document.querySelector('.drawing-board');
+
 function drawSquare (numSquare) { //numSquare is the size of the square matrix.(numSquare=16 means it will create a 16x16 square)
-    
+
     for (let i = 1; i <= numSquare; i++) {
         let square = document.createElement(`div`);
         square.classList.add(`square`);
@@ -28,14 +28,35 @@ function drawSquare (numSquare) { //numSquare is the size of the square matrix.(
 
 }
 
-let num = document.getElementsByTagName(`input`);
-num.value = `16`;
-let numOfSquare = num.value;
-drawSquare(numOfSquare);
+let num = document.querySelector('.input');
 
-let squares = document.querySelectorAll(`.square-square`);
+drawSquare(num.value);
+
+let updateBtn = document.querySelector('button');
+let draw = document.querySelector('.draw');
+let squares = document.querySelectorAll(`.square-square`); // fetch individual squares that are drawn
+
+updateBtn.addEventListener('click', () => {
+    draw.removeChild(drawingBoard);
+    drawingBoard = document.createElement('div');
+    drawingBoard.classList.add('drawing-board');
+    draw.appendChild(drawingBoard);
+    drawSquare(num.value);
+    // squares = '';
+    squares = document.querySelectorAll('.square-square');
+    console.log(squares);
+    squares.forEach(square => {
+        square.addEventListener('mouseover', () => {
+           square.style.cssText = `background-color: black`;
+        });
+    });
+});
+
 squares.forEach(square => {
-    square.addEventListener(`mouseover`, () => {
-       square.style.cssStyle = `background-color: black`;
-    })
-})
+    square.addEventListener('mouseover', () => {
+       square.style.cssText = `background-color: black`;
+    });
+});
+
+
+
