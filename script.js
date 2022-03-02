@@ -8,15 +8,25 @@
  */
 
 let drawingBoard = document.querySelector('.drawing-board');
-let r = 0;
-let g = 0;
-let b = 0;
+let r = 0; //RED
+let g = 0; //GREEN
+let b = 0; //BLUE
 let rainbowColor = '';
-console.log(rainbowColor)
-let blackAndWhiteInput = document.querySelector('.black-and-white').checked;
-let rainbowInput = document.querySelector('.rainbow').checked;
+let color = false; //Default color selected is black
+let colorSelectors = document.querySelectorAll('input[name="color"]'); //Saving the color selector radio buttons to check which one is selected
+let blackAndWhiteInput = document.querySelector('.black-and-white');
+let rainbowInput = document.querySelector('.rainbow');
 
-blackAndWhiteInput.to
+window.addEventListener('click', () => {
+    if (blackAndWhiteInput.checked) {
+        color = false;
+        console.log(color)
+    }
+    else {
+        color = true;
+        console.log(color)
+    }
+})
 
 function drawSquare (numSquare) { //numSquare is the size of the square matrix.(numSquare=16 means it will create a 16x16 square)
 
@@ -55,10 +65,10 @@ updateBtn.addEventListener('click', () => {
             g = Math.round((Math.random()) * 100 + 1);
             b = Math.round((Math.random()) * 100 + 1);
             rainbowColor = `background-color: rgb(${r}, ${g}, ${b})`;
-            if (blackAndWhiteInput == true) {
+            if (color == false) {
                 square.style.cssText = `background-color: black`;
             }
-            else if (rainbowInput == true) {
+            else if (color == true) {
                 square.style.cssText = `${rainbowColor}`;
             }
         });
@@ -71,10 +81,11 @@ squares.forEach(square => {
         g = Math.round((Math.random()) * 100 + 1);
         b = Math.round((Math.random()) * 100 + 1);
         rainbowColor = `background-color: rgb(${r}, ${g}, ${b})`;
-        if (blackAndWhiteInput == true) {
+        // console.log(blackAndWhiteInput, rainbowInput);
+        if (color == false) {
             square.style.cssText = `background-color: black`;
         }
-        else if (rainbowInput == true) {
+        else if (color == true) {
            square.style.cssText = `${rainbowColor}`;
        }
     });
