@@ -2,12 +2,21 @@
 
 /* 
  * 
- * How? Iterate through numSquare and create a div and append to each other. 
+ * Iterate through numSquare and create a div and append to each other. 
  *  
  * 
  */
 
 let drawingBoard = document.querySelector('.drawing-board');
+let r = 0;
+let g = 0;
+let b = 0;
+let rainbowColor = '';
+console.log(rainbowColor)
+let blackAndWhiteInput = document.querySelector('.black-and-white').checked;
+let rainbowInput = document.querySelector('.rainbow').checked;
+
+blackAndWhiteInput.to
 
 function drawSquare (numSquare) { //numSquare is the size of the square matrix.(numSquare=16 means it will create a 16x16 square)
 
@@ -21,15 +30,13 @@ function drawSquare (numSquare) { //numSquare is the size of the square matrix.(
             squareSquare.classList.add(i);
             square.appendChild(squareSquare);
         }
-        
         drawingBoard.appendChild(square);
     }
-
 }
 
 let num = document.querySelector('.input');
 
-drawSquare(num.value); //Defaul 16
+drawSquare(num.value); //Default 16
 
 let updateBtn = document.querySelector('button');
 let draw = document.querySelector('.banner-and-drawing-board');
@@ -43,15 +50,33 @@ updateBtn.addEventListener('click', () => {
     drawSquare(num.value);
     squares = document.querySelectorAll('.square-square');
     squares.forEach(square => {
-        square.addEventListener('mouseover', () => {
-           square.style.cssText = `background-color: black`;
+        square.addEventListener('mouseover', () => { //drawing after size update
+            r = Math.round((Math.random()) * 100 + 1);
+            g = Math.round((Math.random()) * 100 + 1);
+            b = Math.round((Math.random()) * 100 + 1);
+            rainbowColor = `background-color: rgb(${r}, ${g}, ${b})`;
+            if (blackAndWhiteInput == true) {
+                square.style.cssText = `background-color: black`;
+            }
+            else if (rainbowInput == true) {
+                square.style.cssText = `${rainbowColor}`;
+            }
         });
     });
 });
 
 squares.forEach(square => {
-    square.addEventListener('mouseover', () => {
-       square.style.cssText = `background-color: black`;
+    square.addEventListener('mouseover', () => { //drawing for the default size
+        r = Math.round((Math.random()) * 100 + 1);
+        g = Math.round((Math.random()) * 100 + 1);
+        b = Math.round((Math.random()) * 100 + 1);
+        rainbowColor = `background-color: rgb(${r}, ${g}, ${b})`;
+        if (blackAndWhiteInput == true) {
+            square.style.cssText = `background-color: black`;
+        }
+        else if (rainbowInput == true) {
+           square.style.cssText = `${rainbowColor}`;
+       }
     });
 });
 
