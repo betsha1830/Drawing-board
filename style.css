@@ -1,0 +1,19 @@
+.drawing-board {
+    margin: auto;
+    width: 800px;
+    height: 90vh;
+    display: flex;
+    border: 1px solid black;
+}
+
+.square {
+    /* border: 1px solid black; */
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.square-square {
+    display: flex;
+    flex: 1;
+}
