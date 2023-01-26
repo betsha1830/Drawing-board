@@ -76,7 +76,7 @@ updateBtn.addEventListener('click', () => {
 });
 
 squares.forEach(square => {
-    square.addEventListener('mouseover', () => { //drawing for the default size
+    square.addEventListener('mousedown', () => { //drawing for the default size
         r = Math.round((Math.random()) * 100 + 1);
         g = Math.round((Math.random()) * 100 + 1);
         b = Math.round((Math.random()) * 100 + 1);
